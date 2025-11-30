@@ -70,3 +70,30 @@ const printBookDetails = (book: Book): void => {
     `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${availability}`
   );
 };
+
+type ValueType = string | number;
+
+const getUniqueValues = (arr1: ValueType[], arr2: ValueType[]): ValueType[] => {
+  const result: ValueType[] = [];
+
+  const exists = (value: ValueType): boolean => {
+    for (let i = 0; i < result.length; i++) {
+      if (result[i] === value) return true;
+    }
+    return false;
+  };
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (!exists(arr1[i])) {
+      result.push(arr1[i]);
+    }
+  }
+
+  for (let i = 0; i < arr2.length; i++) {
+    if (!exists(arr2[i])) {
+      result.push(arr2[i]);
+    }
+  }
+
+  return result;
+};
