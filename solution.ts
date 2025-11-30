@@ -10,4 +10,14 @@ const formatValue = (value: FormatValueType): FormatValueType => {
   }
 };
 
+type StringOrArray = string | any[];
 
+const getLength = (value: StringOrArray): number => {
+  if (typeof value === "string") {
+    return value.length;
+  } else if (Array.isArray(value)) {
+    return value.length;
+  }
+
+  return 0;
+};
